@@ -1,30 +1,133 @@
-مجد الدين - حلويات شامية أصيلة
- 0
-منذ المطبخ الشامي إلى مائدتك
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>مجد الدين - حلويات شامية أصيلة</title>
+  <meta name="description" content="مجد الدين — حلويات شامية أصيلة — الخبر، المملكة العربية السعودية" />
+  <style>
+    :root{font-family: "Segoe UI", Tahoma, Arial, sans-serif}
+    body{margin:0;padding:0;background:#fff;color:#222;line-height:1.6}
+    .container{max-width:1000px;margin:0 auto;padding:16px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{height:64px;width:auto}
+    h1{font-size:1.4rem;margin:0}
+    p.lead{margin:8px 0;color:#555}
+    .card{border:1px solid #eee;padding:12px;border-radius:8px;margin-top:12px;background:#fafafa}
+    form label{display:block;margin:8px 0 4px;font-weight:600}
+    input[type="text"],input[type="tel"],textarea,select{width:100%;padding:8px;border:1px solid #ccc;border-radius:6px}
+    .radios{display:flex;gap:12px;align-items:center;margin-top:6px}
+    .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .btn{display:inline-block;padding:10px 14px;border-radius:8px;text-decoration:none;color:#fff;background:#28a745;border:none;cursor:pointer}
+    .btn.secondary{background:#007bff}
+    footer{margin-top:24px;padding:12px 0;color:#666;font-size:0.9rem;text-align:center}
+    @media (min-width:700px){ .grid{display:grid;grid-template-columns:1fr 320px;gap:16px} }
+    .cart {border:1px dashed #ddd;padding:12px;border-radius:8px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <!-- ضع مسار الشعار الصحيح هنا -->
+        <img src="assets/logo.png" alt="مجد الدين - شعار" id="logo">
+        <div>
+          <h1>مجد الدين</h1>
+          <div>حلويات شامية أصيلة — الخبر، المملكة العربية السعودية</div>
+        </div>
+      </div>
+      <div aria-live="polite">السلة: <strong id="cart-count">0</strong></div>
+    </header>
 
-حلاوة الشام،
-بين يديك اليوم
-كل صنف بيتحضّر طازج، بنفس وصفات الجدّات، وبيوصلك لباب البيت أو جاهز لاستلامك من المحل.
+    <main class="grid" role="main">
+      <section>
+        <p class="lead">منذ المطبخ الشامي إلى مائدتك</p>
 
-شوف القائمة
-مجد الدين
-حلويات شامية أصيلة — الخبر، المملكة العربية السعودية
+        <div class="card" aria-labelledby="menu-title">
+          <h2 id="menu-title">شوف القائمة</h2>
+          <p>حلاوة الشام، بين يديك اليوم. كل صنف بيتحضّر طازج، بنفس وصفات الجدّات، وبيوصلك لباب البيت أو جاهز لاستلامك من المحل.</p>
+          <!-- هنا يمكنك إضافة قائمة منتجات لاحقاً -->
+        </div>
 
-السلة فاضية
-سلتك
-✕
-الإجمالي 0 ريال
-إتمام الطلب
-بيانات الطلب
-✕
-الاسم 
-اسمك الكامل
-رقم الجوال 
-05XXXXXXXX
-طريقة الاستلام
-استلام من المحل توصيل
-ملاحظات (اختياري) 
-أي طلب خاص أو موعد تفضله...
- إرسال الطلب على واتساب
-تابعونا وشوفو جديدنا 🍯 
-   تصحيح مسار اللوجو
+        <div class="card" aria-labelledby="order-title">
+          <h2 id="order-title">بيانات الطلب</h2>
+
+          <form id="order-form" class="order-form" aria-describedby="order-desc">
+            <div id="order-desc">املأ الحقول ثم اضغط إرسال الطلب على واتساب</div>
+
+            <label for="name">الاسم</label>
+            <input id="name" name="name" type="text" placeholder="اسمك الكامل" required>
+
+            <label for="phone">رقم الجوال</label>
+            <input id="phone" name="phone" type="tel" placeholder="05XXXXXXXX" pattern="[0-9\s+-]+" required>
+
+            <label>طريقة الاستلام</label>
+            <div class="radios" role="radiogroup" aria-label="طريقة الاستلام">
+              <label><input type="radio" name="pickup" value="استلام من المحل" checked> استلام من المحل</label>
+              <label><input type="radio" name="pickup" value="توصيل"> توصيل</label>
+            </div>
+
+            <label for="notes">ملاحظات (اختياري)</label>
+            <textarea id="notes" name="notes" rows="3" placeholder="أي طلب خاص أو موعد تفضله..."></textarea>
+
+            <div class="actions">
+              <button type="submit" class="btn" id="wa-send">إرسال الطلب على واتساب</button>
+              <button type="button" class="btn secondary" id="clear">مسح النموذج</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <aside>
+        <div class="cart" aria-labelledby="cart-title">
+          <h3 id="cart-title">السلة فاضية</h3>
+          <div id="cart-items">سلتك</div>
+          <div style="margin-top:8px">الإجمالي: <strong id="total">0</strong> ريال</div>
+          <div style="margin-top:8px">
+            <button class="btn secondary" id="checkout">إتمام الطلب</button>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      تابعونا وشوفو جديدنا 🍯
+    </footer>
+  </div>
+
+  <script>
+    // ضبط رقم واتساب هنا: ضع رقم دولي بدون + أو 0 في البداية (مثال للسعودية: 9665XXXXXXXX)
+    const WHATSAPP_NUMBER = "9665XXXXXXXX"; // استبدل هذا بالرقم الصحيح قبل النشر
+
+    function urlEncode(str){ return encodeURIComponent(str); }
+
+    document.getElementById('order-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const notes = document.getElementById('notes').value.trim();
+      const pickup = document.querySelector('input[name="pickup"]:checked').value;
+      const message =
+        "طلب من موقع مجد الدين%0A" +
+        "الاسم: " + urlEncode(name) + "%0A" +
+        "الجوال: " + urlEncode(phone) + "%0A" +
+        "طريقة الاستلام: " + urlEncode(pickup) + "%0A" +
+        (notes ? ("ملاحظات: " + urlEncode(notes) + "%0A") : "") +
+        "يرجى الرد لتأكيد الطلب.";
+      // افتح واتساب برابط رسمي
+      const waLink = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + message;
+      window.open(waLink, "_blank", "noopener");
+    });
+
+    document.getElementById('clear').addEventListener('click', function(){
+      document.getElementById('order-form').reset();
+    });
+
+    // وظائف سلة بسيطة (مكان مبدئي)
+    document.getElementById('checkout').addEventListener('click', function(){
+      alert("اضغط على 'إرسال الطلب على واتساب' في نموذج الطلب لإرسال السلة.");
+    });
+  </script>
+</body>
+</html>
